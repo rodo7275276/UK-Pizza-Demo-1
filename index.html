@@ -29,6 +29,7 @@
             background-color: var(--soft-white);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -645,7 +646,8 @@
             color: var(--accent-red);
         }
 
-        .checkout-btn {
+        /* CHANGED FROM checkout-btn TO order-btn */
+        .order-btn {
             background-color: var(--accent-blue);
             color: white;
             border: none;
@@ -659,7 +661,7 @@
             margin-top: 15px;
         }
 
-        .checkout-btn:hover {
+        .order-btn:hover {
             background-color: #152c6b;
         }
 
@@ -673,6 +675,207 @@
             font-size: 40px;
             margin-bottom: 10px;
             color: #ddd;
+        }
+
+        /* Table Selection Modal */
+        .table-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1002;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .table-content {
+            background-color: white;
+            width: 95%;
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .table-title {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .close-table {
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .close-table:hover {
+            color: var(--accent-red);
+        }
+
+        .table-instruction {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .table-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .table-btn {
+            background-color: var(--soft-blue);
+            border: none;
+            padding: 15px 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 16px;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .table-btn:hover {
+            background-color: var(--accent-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .table-btn.selected {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+
+        .confirm-table-btn {
+            background-color: var(--accent-red);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .confirm-table-btn:hover {
+            background-color: #b91c1c;
+        }
+
+        .confirm-table-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Pizza Animation Notification - FIXED */
+        .pizza-notification {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1003;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        .pizza-animation-container {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 30px;
+        }
+
+        .pizza-notification-text {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #FFDE31;
+            animation: pulse 1.5s infinite;
+        }
+
+        .pizza-notification-subtext {
+            font-size: 18px;
+            text-align: center;
+            max-width: 400px;
+            line-height: 1.5;
+            color: #f9f9f9;
+        }
+
+        /* FIXED PIZZA ANIMATION */
+        .pizza-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .pizza-whole {
+            animation: rotatePizza 4s linear infinite;
+            transform-origin: center;
+        }
+
+        .pizza-outline {
+            animation: rotateOutline 3s linear infinite reverse;
+            transform-origin: center;
+        }
+
+        @keyframes rotatePizza {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateOutline {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
         }
 
         /* Footer */
@@ -816,6 +1019,15 @@
                 padding: 15px;
             }
 
+            .table-content {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .table-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
             nav {
                 display: none;
                 width: 100%;
@@ -871,6 +1083,19 @@
 
             .product-image {
                 height: 200px;
+            }
+
+            .table-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .pizza-notification-text {
+                font-size: 22px;
+            }
+
+            .pizza-notification-subtext {
+                font-size: 16px;
+                padding: 0 15px;
             }
         }
     </style>
@@ -1062,8 +1287,81 @@
                 <span>کۆی گشتی:</span>
                 <span class="total-price" id="totalPrice">٠ دینار</span>
             </div>
-            <button class="checkout-btn" id="checkoutBtn">پارەدان</button>
+            <!-- CHANGED FROM checkoutBtn TO orderBtn -->
+            <button class="order-btn" id="orderBtn">داواکردن</button>
         </div>
+    </div>
+
+    <!-- Table Selection Modal -->
+    <div class="table-modal" id="tableModal">
+        <div class="table-content">
+            <div class="table-header">
+                <h2 class="table-title">هەڵبژاردنی مێز</h2>
+                <button class="close-table" id="closeTable">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="table-instruction">تکایە ژمارەی مێزەکەت هەڵبژێرە (١ بۆ ٢٥)</p>
+            <div class="table-grid" id="tableGrid">
+                <!-- Table buttons will be added by JavaScript -->
+            </div>
+            <button class="confirm-table-btn" id="confirmTableBtn" disabled>
+                <i class="fas fa-check"></i> پشتڕاستکردنەوەی داواکاری
+            </button>
+        </div>
+    </div>
+
+    <!-- Pizza Animation Notification - FIXED -->
+    <div class="pizza-notification" id="pizzaNotification">
+        <div class="pizza-animation-container">
+            <svg class="pizza-svg" viewBox="0 0 122 122" xmlns="http://www.w3.org/2000/svg">
+                <!-- Pizza body -->
+                <circle cx="61" cy="61" r="61" fill="#FFB800"/>
+                <circle cx="61" cy="61" r="55" fill="#FFDE31"/>
+                
+                <!-- Pepperoni slices -->
+                <g fill="#CD2D36" stroke="#FEA202" stroke-miterlimit="10" stroke-width="2">
+                    <circle cx="61" cy="29.11" r="8" />
+                    <circle cx="38.45" cy="38.45" r="8" />
+                    <circle cx="29.11" cy="61" r="8" />
+                    <circle cx="38.45" cy="83.55" r="8" />
+                    <circle cx="61" cy="92.89" r="8" />
+                    <circle cx="83.55" cy="83.55" r="8" />
+                    <circle cx="92.89" cy="61" r="8" />
+                    <circle cx="83.55" cy="38.45" r="8" />
+                </g>
+                
+                <!-- Crust details -->
+                <circle cx="61" cy="61" r="48.2" fill="none" stroke="#FEA202" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="16 10 8 4"/>
+                <circle cx="61" cy="60.8" r="8" fill="#CD2D36" stroke="#FEA202" stroke-miterlimit="10" stroke-width="2"/>
+                
+                <!-- Outer crust decoration - added class for animation -->
+                <g class="pizza-outline" fill="none" stroke="#FEA202" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <!-- Simplified crust lines for better animation -->
+                    <line x1="75.5" y1="115.1" x2="74.98" y2="113.16" />
+                    <line x1="70.73" y1="116.15" x2="70.38" y2="114.18" />
+                    <line x1="65.88" y1="116.79" x2="65.71" y2="114.8" />
+                    <line x1="61" y1="117" x2="61" y2="115" />
+                    <line x1="56.12" y1="116.79" x2="56.3" y2="114.8" />
+                    <line x1="51.28" y1="116.15" x2="51.63" y2="114.18" />
+                    <line x1="46.51" y1="115.1" x2="47.03" y2="113.16" />
+                    <line x1="41.85" y1="113.63" x2="42.53" y2="111.75" />
+                    <line x1="37.34" y1="111.76" x2="38.18" y2="109.95" />
+                    <line x1="33" y1="109.5" x2="34" y2="107.77" />
+                </g>
+                
+                <!-- Main pizza with class for animation -->
+                <g class="pizza-whole">
+                    <!-- Center pepperoni -->
+                    <circle cx="61" cy="60.8" r="8" fill="#CD2D36" stroke="#FEA202" stroke-miterlimit="10" stroke-width="2"/>
+                    
+                    <!-- Some inner details -->
+                    <circle cx="61" cy="61" r="48.2" fill="none" stroke="#FEA202" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="16 10 8 4"/>
+                </g>
+            </svg>
+        </div>
+        <h2 class="pizza-notification-text">خواردنەکەت بەم نزیکانە ئامادە دەکرێت! 🍕</h2>
+        <p class="pizza-notification-subtext">ئێمە ئێستا خواردنەکەت ئامادە دەکەین و لە ماوەی ١٥-٢٠ خولەکدا بۆ مێزی ژمارە <span id="selectedTableNumber">٠</span> دەیھێنین</p>
     </div>
 
     <script>
@@ -1240,12 +1538,12 @@
             appetizers: [
                 { 
                     id: 19, 
-                    name: "فلافڵ", 
+                    name: "پەنێر و کراکەر", 
                     price: 6000, 
-                    image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
-                    description: "فلافڵێکی تازە و خۆشبەرز بە هەنگوین و سەوزە",
-                    ingredients: ["نیکۆڵە", "سەوزە", "هەنگوین", "بەهارات"],
-                    calories: "٣٢٠"
+                    image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80", 
+                    description: "پەنێرێکی تازە لەگەڵ کراکەری خانەوادە",
+                    ingredients: ["پەنیری چێدار", "کراکەر", "زەیتوون", "بەهارات"],
+                    calories: "٢٨٠"
                 },
                 { 
                     id: 20, 
@@ -1325,7 +1623,7 @@
                     id: 28, 
                     name: "کووکی", 
                     price: 3000, 
-                    image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1160&q=80", 
+                    image: "https://images.unsplash.com/photo-1624352902304-5b5a1a4b8c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
                     description: "کووکیێکی تازە و خۆشبەرز بە چۆکلەت",
                     ingredients: ["آرد", "شەکر", "چۆکلەت", "هێلکە"],
                     calories: "٢٠٠"
@@ -1343,7 +1641,7 @@
                     id: 30, 
                     name: "مافین", 
                     price: 3500, 
-                    image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1160&q=80", 
+                    image: "https://images.unsplash.com/photo-1624352902304-5b5a1a4b8c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80", 
                     description: "مافینێکی تازە و نەرم بە چۆکلەت",
                     ingredients: ["آرد", "شەکر", "چۆکلەت", "هێلکە"],
                     calories: "٣٢٠"
@@ -1371,12 +1669,14 @@
 
         // Cart functionality
         let cart = [];
+        let selectedTable = null;
+        
         const cartIcon = document.getElementById('cartIcon');
         const cartModal = document.getElementById('cartModal');
         const closeCart = document.getElementById('closeCart');
         const cartItems = document.getElementById('cartItems');
         const totalPrice = document.getElementById('totalPrice');
-        const checkoutBtn = document.getElementById('checkoutBtn');
+        const orderBtn = document.getElementById('orderBtn'); // Changed from checkoutBtn
         const cartCount = document.querySelector('.cart-count');
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
@@ -1392,6 +1692,14 @@
         const productModalCalories = document.getElementById('productModalCalories');
         const modalAddToCart = document.getElementById('modalAddToCart');
         const mainContent = document.getElementById('mainContent');
+
+        // Table selection elements
+        const tableModal = document.getElementById('tableModal');
+        const closeTable = document.getElementById('closeTable');
+        const tableGrid = document.getElementById('tableGrid');
+        const confirmTableBtn = document.getElementById('confirmTableBtn');
+        const pizzaNotification = document.getElementById('pizzaNotification');
+        const selectedTableNumber = document.getElementById('selectedTableNumber');
 
         let currentProduct = null;
 
@@ -1437,6 +1745,34 @@
                     }
                 });
             });
+        }
+
+        // Initialize table selection
+        function initializeTableSelection() {
+            tableGrid.innerHTML = '';
+            for (let i = 1; i <= 25; i++) {
+                const tableBtn = document.createElement('button');
+                tableBtn.className = 'table-btn';
+                tableBtn.textContent = i;
+                tableBtn.setAttribute('data-table', i);
+                tableBtn.addEventListener('click', () => selectTable(i));
+                tableGrid.appendChild(tableBtn);
+            }
+        }
+
+        // Select table function
+        function selectTable(tableNumber) {
+            // Remove selected class from all buttons
+            document.querySelectorAll('.table-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked button
+            const selectedBtn = document.querySelector(`.table-btn[data-table="${tableNumber}"]`);
+            selectedBtn.classList.add('selected');
+            
+            selectedTable = tableNumber;
+            confirmTableBtn.disabled = false;
         }
 
         // Get product by ID
@@ -1664,18 +2000,61 @@
             return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "،");
         }
 
-        // Checkout button
-        checkoutBtn.addEventListener('click', () => {
+        // Order button click (changed from checkout)
+        orderBtn.addEventListener('click', () => {
             if (cart.length === 0) {
-                alert('سەبەتەکەت بەتاڵە!');
+                showAddedToCartMessage('سەبەتەکەت بەتاڵە!');
                 return;
             }
             
-            alert('سوپاس بۆ داواکاریەکەت! داواکاریەکەت وەرگیرا و لە ماوەی ٣٠ خولەکدا ئامادەیە.');
-            cart = [];
-            updateCartDisplay();
-            updateCartCount();
+            // Close cart modal
             cartModal.style.display = 'none';
+            
+            // Reset table selection
+            selectedTable = null;
+            document.querySelectorAll('.table-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            confirmTableBtn.disabled = true;
+            
+            // Show table selection modal
+            tableModal.style.display = 'flex';
+        });
+
+        // Confirm table button
+        confirmTableBtn.addEventListener('click', () => {
+            if (!selectedTable) {
+                showAddedToCartMessage('تکایە مێزێک هەڵبژێرە!');
+                return;
+            }
+            
+            // Close table modal
+            tableModal.style.display = 'none';
+            
+            // Show pizza notification
+            selectedTableNumber.textContent = selectedTable;
+            pizzaNotification.style.display = 'flex';
+            
+            // Clear cart after 5 seconds and show success message
+            setTimeout(() => {
+                // Show success message
+                showAddedToCartMessage('داواکاریەکەت پێشکەش کرا!');
+                
+                // Clear cart
+                cart = [];
+                updateCartDisplay();
+                updateCartCount();
+                
+                // Hide pizza notification after 5 more seconds
+                setTimeout(() => {
+                    pizzaNotification.style.display = 'none';
+                }, 5000);
+            }, 3000);
+        });
+
+        // Close table modal
+        closeTable.addEventListener('click', () => {
+            tableModal.style.display = 'none';
         });
 
         // Category filtering
@@ -1739,11 +2118,18 @@
             if (e.target === cartModal) {
                 cartModal.style.display = 'none';
             }
+            if (e.target === tableModal) {
+                tableModal.style.display = 'none';
+            }
+            if (e.target === pizzaNotification) {
+                pizzaNotification.style.display = 'none';
+            }
         });
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             initializeMenu();
+            initializeTableSelection();
         });
     </script>
 </body>
