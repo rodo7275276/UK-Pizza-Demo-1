@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK Pizza - مێنیو</title>
+    <title>UK Pizza Erbil - مێنیو</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -37,7 +37,7 @@
             padding: 0 15px;
         }
 
-        /* Header Styles */
+        /* Header Styles - UPDATED WITH UK PIZZA ERBIL LOGO */
         header {
             background-color: white;
             box-shadow: var(--shadow);
@@ -53,9 +53,30 @@
             padding: 15px 0;
         }
 
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: 50px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .logo-text {
             font-size: 28px;
             font-weight: 800;
+            line-height: 1.1;
         }
 
         .uk {
@@ -64,6 +85,14 @@
 
         .pizza {
             color: var(--accent-red);
+        }
+
+        .erbil {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+            margin-top: 2px;
         }
 
         nav ul {
@@ -725,14 +754,18 @@
                 padding: 10px 0;
             }
 
-            .logo {
-                order: 2;
+            .logo-text {
                 font-size: 24px;
+            }
+
+            .logo-img {
+                height: 45px;
+                width: 45px;
+                font-size: 16px;
             }
 
             .mobile-menu-btn {
                 display: block;
-                order: 1;
             }
 
             .cart-icon {
@@ -850,7 +883,15 @@
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="logo"><span class="uk">UK</span> <span class="pizza">Pizza</span></div>
+                <div class="logo-container">
+                    <div class="logo-img">
+                        UK
+                    </div>
+                    <div class="logo-text">
+                        <span class="uk">UK</span> <span class="pizza">Pizza</span>
+                        <span class="erbil">هەولێر</span>
+                    </div>
+                </div>
                 <div class="cart-icon" id="cartIcon">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
@@ -938,13 +979,13 @@
                 <div class="footer-content">
                     <div class="footer-section">
                         <h3>دەربارەی ئێمە</h3>
-                        <p>UK Pizza باشترین شوێنی پیتزا لە هەولێرە کە پیتزای تایبەتی پێشکەش دەکات</p>
+                        <p>UK Pizza هەولێر باشترین شوێنی پیتزا لە هەولێرە کە پیتزای تایبەتی پێشکەش دەکات</p>
                     </div>
                     <div class="footer-section">
                         <h3>پەیوەندی</h3>
                         <p><i class="fas fa-map-marker-alt"></i> هەولێر، کوردستان</p>
                         <p><i class="fas fa-phone"></i> ٠٧٥٠ ١٢٣ ٤٥٦٧</p>
-                        <p><i class="fas fa-envelope"></i> info@ukpizza.com</p>
+                        <p><i class="fas fa-envelope"></i> info@ukpizza-erbil.com</p>
                     </div>
                     <div class="footer-section">
                         <h3>کاتەکانی کار</h3>
@@ -961,7 +1002,7 @@
                     </div>
                 </div>
                 <div class="copyright">
-                    <p>© ٢٠٢٣ UK Pizza. هەموو مافەکان پارێزراون.</p>
+                    <p>© ٢٠٢٣ UK Pizza هەولێر. هەموو مافەکان پارێزراون.</p>
                 </div>
             </div>
         </footer>
@@ -1026,7 +1067,7 @@
     </div>
 
     <script>
-        // Enhanced menu data with ingredients and calories
+        // KEEPING ALL ORIGINAL MENU DATA - ONLY CHANGING THE LOGO
         const menuData = {
             pizza: [
                 { 
@@ -1116,7 +1157,7 @@
                     id: 10, 
                     name: "بێرگەری چیکن", 
                     price: 13000, 
-                    image: "https://images.unsplash.com/photo-1606755962773-d324e3833248?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80", 
+                    image: "https://tse2.mm.bing.net/th/id/OIP.MSUHFCBdS_Iggg8dcnZ1PwHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3", 
                     description: "بێرگەرێکی تایبەت بە مەرغ و سەوزە و سۆسی تایبەت",
                     ingredients: ["مەرغ", "نانی بێرگەر", "سەلاد", "تیکا", "پیاز", "سۆسی مایۆ"],
                     calories: "٤٨٠"
